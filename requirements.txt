@@ -1,0 +1,4 @@
+astrobox==1.4.0
+pygame==1.9.6
+robogame-engine==1.2.0
+six==1.13.0
