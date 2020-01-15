@@ -6,26 +6,29 @@ from robogame_engine.theme import theme
 
 
 class KhizhovDrone(Drone):
-    map_field = scene.theme.FIELD_WIDTH, scene.theme.FIELD_HEIGHT
-    center_map = Point(x=round(int(map_field[0] // 2)), y=round(int(map_field[1] // 2)))
     my_team = []
-    asteroids_in_work = []
-    path_is_fully_loaded = 0
-    path_half_loaded = 0
-    path_is_empty = 0
-    attack_range = 0
-    task = ()
-    last_task = []
-    limit_health = 0.5
-    optimal_start_coord = []
-    step = 0
-    first_coord = None
-    optimal_coord = None
-    enemy_target = None
-    all_object = set()
-    near_aster = []
-    target_move_to = None
-    shot_count = 0
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.map_field = scene.theme.FIELD_WIDTH, scene.theme.FIELD_HEIGHT
+        self.center_map = Point(x=round(int(self.map_field[0] // 2)), y=round(int(self.map_field[1] // 2)))
+        self.asteroids_in_work = []
+        self.path_is_fully_loaded = 0
+        self.path_half_loaded = 0
+        self.path_is_empty = 0
+        self.attack_range = 0
+        self.task = ()
+        self.last_task = []
+        self.limit_health = 0.5
+        self.optimal_start_coord = []
+        self.step = 0
+        self.first_coord = None
+        self.optimal_coord = None
+        self.enemy_target = None
+        self.all_object = set()
+        self.near_aster = []
+        self.target_move_to = None
+        self.shot_count = 0
 
     def next_action(self):
         """Выполняем таск с аргумнтами или без, инфа для дебага"""
